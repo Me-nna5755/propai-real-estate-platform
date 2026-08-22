@@ -1,1 +1,32 @@
 
+<<<<............Enums..............>>>>
+
+user.role{
+    Customer
+    Agent 
+    Admin
+}
+Property.purpose{
+    Sale
+    Rent
+}
+Property.status{
+    Available
+    Sold
+    Rented
+}
+Booking.status{
+    Pending
+    Confirmed
+    Rejected
+    Cancelled
+    Completed
+}
+Lead.status{
+    New
+    Contacted
+    Interested
+    ViewingScheduled
+    Qualified
+    Closed
+}

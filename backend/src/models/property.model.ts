@@ -1,0 +1,100 @@
+
+import mongoose from "mongoose";
+
+const propertySchema=new mongoose.Schema({
+    title:{
+        type:String,
+        required:true,
+        trim:true,
+    },
+    slug:{
+        type:String,
+        required:true,
+        unique:true,
+        trim:true
+    },
+    description:{
+        type:String,
+        trim:true
+    },
+    price:{
+        type:Number,
+        required:true,
+        min:0
+    },
+    purpose:{
+        type:String,
+        required:true,
+        enum:["Sale", "Rent"],
+        trim:true
+    },
+    type:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    bedrooms:{
+        type:Number,
+        required:true,
+        min:0
+    },
+    bathrooms:{
+        type:Number,
+        min:0
+    },
+    area:{
+        type:Number,
+        min:0
+    },
+    address:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    location:{
+        latitude:{
+            type:Number
+        },
+        longitude:{
+            type:Number
+        }
+    },
+   amenities:{
+        type:[String],
+        default:[]
+    },
+    images:{
+        type:[String],
+         default:[]
+    },
+    status:{
+        type:String,
+        required:true,
+        enum:[
+            "Available",
+            "Reserved",
+            "Sold",
+            "Rented",
+            "Draft",
+            "Archived",
+
+        ],
+        default:"Draft"
+    },
+    agent:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"User",
+        required:true
+    },metaTitle:{
+        type:String,
+        trim:true
+    },
+    metaDescription:{
+        type:String,
+        trim:true
+    }
+},{
+        timestamps:true
+    })
+export const Property = mongoose.model("Property", propertySchema);
+

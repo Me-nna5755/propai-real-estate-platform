@@ -18,7 +18,9 @@ export const propertySchema=z.object({
     status:z.enum(["Draft", "Available","Reserved","Sold","Rented","Archived"]).optional(),
     agent:z.string().min(1,"agent is required"),
     metaTitle:z.string().trim().optional(),
-    metaDescription:z.string().trim().optional()
+    metaDescription:z.string().trim().optional(),
+    page: z.coerce.number().int().positive().optional(),
+    limit: z.coerce.number().int().positive().optional(),
 
 })
 export type CreatePropertyInput= z.infer<typeof propertySchema>

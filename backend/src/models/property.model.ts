@@ -96,5 +96,19 @@ const propertySchema=new mongoose.Schema({
 },{
         timestamps:true
     })
+
+
+propertySchema.index({ address: 1 });
+propertySchema.index({ price: 1 });
+propertySchema.index({ purpose: 1 });
+propertySchema.index({ type: 1 });
+propertySchema.index({ status: 1 });
+
 export const Property = mongoose.model("Property", propertySchema);
+
+
+
+
+
+
 
